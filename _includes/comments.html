@@ -1,0 +1,14 @@
+ <ul>
+     <li>{{ include.type }}</li>
+     <li>{{ include.lang }}</li>
+     <li>{{ include.url }}</li>
+ </ul>
+
+{% if include.type == facebook %}
+<div class="fb-comments" data-href="{{ include.url }}" data-numposts="5" data-width=""></div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/{{ include.lang }}/sdk.js#xfbml=1&version=v7.0"></script>
+
+
+{% endif %}

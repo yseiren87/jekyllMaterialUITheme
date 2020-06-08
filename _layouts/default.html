@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% assign host = "192.168.110.10:8001" %}
+{% assign hash = "" %}
+
+<html lang="en">
+<head>
+    {% include googleAnalytics.html %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ site.title }}</title>
+
+    <link href="//{{ host }}/material-ui-theme.css" rel="stylesheet">
+    <!--    <link href="/assets/material-ui-theme/dist/material-ui-theme-{{ hash }}.css" rel="stylesheet">-->
+
+    {% include favicon.html %}
+</head>
+
+<body>
+
+{{ content }}
+
+{% include scrollUpButton.html %}
+
+<script src="//{{ host }}/material-ui-theme-main.js" async></script>
+<!--<script src="/assets/material-ui-theme/dist/material-ui-theme-{{ hash }}.js" async></script>-->
+</body>
+
+</html>

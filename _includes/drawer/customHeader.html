@@ -1,0 +1,75 @@
+<div class="mut-drawer__header">
+    <img src="/{{site.author.avatar}}" alt="Avatar Image" class="mut-drawer__header__avatar"/>
+    <h3 class="mut-drawer__header__name">{{ site.author.name }}</h3>
+    <h4 class="mut-drawer__header__tag">{{ site.author.tag }}</h4>
+    <a class="mut-drawer__header__email" href="mailto:{{ site.email }}">{{ site.author.email }}</a>
+    <ul class="mut-drawer__header__social">
+        {% if site.social.twitter %}
+        <li>
+            <a class="mdc-icon-button"
+               target="_blank"
+               title="twitter"
+               href="https://twitter.com/{{site.social.twitter}}"
+               role="button">
+                <img src="/assets/material-ui-theme/social/twitter.svg" class="mdc-icon-button__icon" alt=""/>
+            </a>
+        </li>
+        {% endif %}
+
+        {% if site.social.facebook %}
+        <li>
+            <a class="mdc-icon-button"
+               target="_blank"
+               title="facebook"
+               href="https://www.facebook.com/{{site.social.facebook}}"
+               role="button">
+                <img src="/assets/material-ui-theme/social/facebook.svg" class="mdc-icon-button__icon" alt=""/>
+            </a>
+        </li>
+        {% endif %}
+
+        {% if site.social.instagram %}
+        <li>
+            <a class="mdc-icon-button"
+               target="_blank"
+               title="instagram"
+               href="https://www.instagram.com/{{site.social.instagram}}/"
+               role="button">
+                <img src="/assets/material-ui-theme/social/instagram.svg" class="mdc-icon-button__icon" alt=""/>
+            </a>
+        </li>
+        {% endif %}
+
+        {% if site.social.pinterest %}
+        <li>
+            <a class="mdc-icon-button"
+               target="_blank"
+               title="pinterest"
+               href="https://www.pinterest.com/{{site.social.pinterest}}/"
+               role="button">
+                <img src="/assets/material-ui-theme/social/pinterest.svg" class="mdc-icon-button__icon" alt=""/>
+            </a>
+        </li>
+        {% endif %}
+
+        {% if site.social.tumblr %}
+        <li>
+            <a class="mdc-icon-button"
+               target="_blank"
+               title="tumblr"
+               href="https://www.tumblr.com/dashboard/blog/{{site.social.tumblr}}"
+               role="button">
+                <img src="/assets/material-ui-theme/social/tumblr.svg" class="mdc-icon-button__icon" alt=""/>
+            </a>
+        </li>
+        {% endif %}
+
+        {% if site.author.rss == true %}
+        <li>
+            <a class="mdc-icon-button" title="RSS feed" href="/feed.xml" role="button" target="_blank">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">rss_feed</i>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

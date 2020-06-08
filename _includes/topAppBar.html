@@ -1,0 +1,43 @@
+<header class="mdc-top-app-bar mdc-elevation--z5">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+
+            {% if include.navIcon == true %}
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">
+                menu
+            </button>
+            {% endif %}
+
+            {% include brand.html %}
+
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+
+            <nav class="mut-top-app-bar__tab">
+                {% assign menuList = "" | split: ',' %}
+                {% for site in site.categories %}
+                {% assign menuList = menuList | push: site.first | uniq %}
+                {% endfor %}
+
+                {% assign menuList = menuList | sort %}
+
+                {% for category in menuList %}
+                <a href="/{{category}}/" data-link="/{{category}}/"
+                   class="mut-top-app-bar__tab-item mut-top-app-bar__tab-item--active">
+                    {{category}}
+                </a>
+                {% endfor %}
+
+            </nav>
+
+            <a role="button" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Tags"
+               href="/tag/">
+                local_offer
+            </a>
+            <a role="button" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Date"
+               href="/date/">
+                calendar_today
+            </a>
+        </section>
+    </div>
+</header>

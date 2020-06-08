@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+{% assign current = page.menu | join: '-' %}
+{% include pageMeta.html drawerClick="paging" target=current %}
+
+{% include topAppBar.html navIcon=true %}
+{% include drawer/postDrawer.html %}
+
+<div class="main main--drawer">
+    <main class="mut-content">
+        <h1>{{ site.comments.lang }}</h1>
+
+        {{ content }}
+
+        {% include comments.html type=site.comment.type url=site.url lang=site.comments.lang %}
+
+    </main>
+</div>

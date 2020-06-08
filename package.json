@@ -1,0 +1,61 @@
+{
+  "name": "material-ui-theme-webpack",
+  "version": "0.0.1",
+  "description": "Material UI based Jekyll theme with webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yseiren87/jekyllMaterialUITheme.git"
+  },
+  "keywords": [
+    "jekyll",
+    "material-design",
+    "reactjs"
+  ],
+  "author": "Yang Jin Je",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yseiren87/jekyllMaterialUITheme/issues"
+  },
+  "homepage": "https://github.com/yseiren87/jekyllMaterialUITheme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@material/ripple": "^6.0.0",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "extract-loader": "^5.0.1",
+    "file-loader": "^6.0.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "terser-webpack-plugin": "^2.3.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@material/button": "^6.0.0",
+    "@material/card": "^6.0.0",
+    "@material/chips": "^6.0.0",
+    "@material/drawer": "^6.0.0",
+    "@material/elevation": "^6.0.0",
+    "@material/fab": "^6.0.0",
+    "@material/icon-button": "^6.0.0",
+    "@material/rtl": "^6.0.0",
+    "@material/tab": "^6.0.0",
+    "@material/tab-bar": "^6.0.0",
+    "@material/tab-indicator": "^6.0.0",
+    "@material/tab-scroller": "^6.0.0",
+    "@material/toolbar": "^2.3.0",
+    "@material/top-app-bar": "^6.0.0",
+    "@material/typography": "^6.0.0",
+    "sf": "^0.2.0"
+  }
+}

@@ -1,0 +1,57 @@
+@import "../libs/mixins";
+
+.mut-brand {
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+
+  &__link {
+    padding: 16px 12px;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+    }
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+    padding-left: 0;
+    filter: brightness(0) invert(1);
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .25px;
+    line-height: 32px;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 0;
+    text-overflow: ellipsis;
+    text-transform: none;
+    white-space: nowrap;
+    z-index: 1;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+  }
+
+  &--drawer {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+    & .mut-brand__img {
+      padding-left: 12px;
+      filter: none;
+    }
+
+    & .mut-brand__title {
+      color: black;
+    }
+  }
+
+}

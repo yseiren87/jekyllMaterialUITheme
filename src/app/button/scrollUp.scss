@@ -1,0 +1,14 @@
+@import "node_modules/@material/fab/mdc-fab";
+
+.app-fab--absolute {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}
+
+#scroll-up-button {
+  display: none;
+
+  @include mdc-fab-accessible(black);
+
+}

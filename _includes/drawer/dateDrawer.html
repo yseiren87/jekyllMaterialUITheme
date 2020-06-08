@@ -1,0 +1,28 @@
+<aside class="mdc-drawer">
+
+    {% include brand.html drawer=true %}
+
+    {% assign menuList = "" | split: ',' %}
+    {% for post in site.posts %}
+    {% assign menuList = menuList | push: post.date | uniq %}
+    {% endfor %}
+    {% assign menuList = menuList | sort | reverse %}
+
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            {% for menu in menuList %}
+            {% assign dateForm = menu | date: "%Y-%m-%d" %}
+            <a href="/date/#date-{{ dateForm }}"
+               data-target="date-{{ dateForm }}"
+               class="mdc-list-item mut-sidebar-item">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">
+                    today
+                </i>
+                <span class="mdc-list-item__text">{{ dateForm }}</span>
+            </a>
+            {% endfor %}
+        </nav>
+    </div>
+
+</aside>
+<div class="mdc-drawer-scrim"></div>

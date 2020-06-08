@@ -1,0 +1,51 @@
+---
+layout: default
+---
+{% include pageMeta.html drawerClick="scrolling" %}
+
+{% include topAppBar.html navIcon=true %}
+{% include drawer/tagDrawer.html %}
+
+<div class="main main--drawer">
+    <main class="mut-content">
+
+        <h1 class="mut-content__title">{{ page.title }}</h1>
+
+        <div class="mut-content__description">
+            {{ page.description }}
+        </div>
+
+        {% assign tagList = "" | split: ',' %}
+        {% for tag in site.tags %}
+        {% assign tagList = tagList | push: tag.first | uniq %}
+        {% endfor %}
+        {% assign tagList = tagList | sort %}
+
+        {% for tag in tagList %}
+        <div class="mut-content__section" id="tag-{{ tag | replace: ' ', '-' }}">
+            <h2 class="mut-content__section__name">{{ tag }}</h2>
+
+            <ul class="mdc-list mdc-list--two-line mut-content__post-list">
+                {% for post in site.tags[tag] %}
+                {% assign date = post.date | date: "%Y-%m-%d" %}
+                <li class="mdc-list-item mdc-elevation--z3 mut-content__post-list-item" data-link="{{ post.url }}">
+                    <div class="mdc-list-item__text">
+                        <p class="mdc-list-item__primary-text mut-content__post-list-item__title">{{ post.title }}</p>
+                        <p class="mdc-list-item__secondary-text">{{ post.description }}</p>
+                    </div>
+                    <div class="mdc-list-item__meta">
+                        <p class="mdc-list-item__text mut-content__post-list-item__meta">{{ date }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        {% if forloop.last == false %}
+        <hr/>
+        {% endif %}
+
+        {% endfor %}
+    </main>
+</div>

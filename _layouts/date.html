@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+{% include pageMeta.html drawerClick="scrolling" %}
+
+{% include topAppBar.html navIcon=true %}
+{% include drawer/dateDrawer.html %}
+
+<div class="main main--drawer">
+    <main class="mut-content">
+
+        <h1 class="mut-content__title">{{ page.title }}</h1>
+
+        <div class="mut-content__description">
+            {{ page.description }}
+        </div>
+
+        {% assign dateList = "" | split: ',' %}
+        {% for post in site.posts %}
+        {% assign dateList = dateList | push: post.date | uniq %}
+        {% endfor %}
+        {% assign dateList = dateList | sort | reverse %}
+
+        {% for date in dateList %}
+        <div class="mut-content__section" id="date-{{ date | date: '%Y-%m-%d' }}">
+            <h2 class="mut-content__section__name">{{ date | date: "%Y-%m-%d" }}</h2>
+
+            <ul class="mdc-list mdc-list--two-line mut-content__post-list">
+                {% for post in site.posts %}
+                {% if post.date == date %}
+                <li class="mdc-list-item mdc-elevation--z3 mut-content__post-list-item" data-link="{{ post.url }}">
+                    <div class="mdc-list-item__text">
+                        <p class="mdc-list-item__primary-text mut-content__post-list-item__title">{{ post.title }}</p>
+                        <p class="mdc-list-item__secondary-text">{{ post.description }}</p>
+                    </div>
+                    <div class="mdc-list-item__meta">
+                        <p class="mdc-list-item__text mut-content__post-list-item__meta">{{ post.tags | join: ', '
+                            }}</p>
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if forloop.last == false %}
+        <hr/>
+        {% endif %}
+
+        {% endfor %}
+    </main>
+
+</div>

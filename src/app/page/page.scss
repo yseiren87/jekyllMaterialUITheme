@@ -1,0 +1,56 @@
+@import "../libs/mixins";
+@import "../libs/variables";
+
+
+.mut-content {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $content-padding-top $content-padding-side $content-padding-bottom $content-padding-side;
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__description {
+
+  }
+
+  &__section {
+    margin: 4rem 0 2.5rem 0;
+
+    &__name {
+      text-transform: capitalize;
+    }
+  }
+
+  &__post-list-item {
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &__title {
+      text-transform: capitalize;
+    }
+
+    &__meta {
+      text-transform: capitalize;
+      text-align: right;
+    }
+  }
+}
+
+
+@include low-resolution {
+  .mut-content {
+    &__section {
+      margin: 2rem 0 1rem 0;
+    }
+
+    &__post-list-item {
+      margin-bottom: 1rem;
+    }
+  }
+}

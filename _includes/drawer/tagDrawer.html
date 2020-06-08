@@ -1,0 +1,27 @@
+<aside class="mdc-drawer">
+
+    {% include brand.html drawer=true %}
+
+    {% assign menuList = "" | split: ',' %}
+    {% for tag in site.tags %}
+    {% assign menuList = menuList | push: tag.first | uniq %}
+    {% endfor %}
+    {% assign menuList = menuList | sort %}
+
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            {% for menu in menuList %}
+            <a href="/tag/#tag-{{ menu | replace: ' ', '-' }}"
+               data-target="tag-{{ menu | replace: ' ', '-' }}"
+               class="mdc-list-item mut-sidebar-item">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">
+                    label
+                </i>
+                <span class="mdc-list-item__text">{{ menu }}</span>
+            </a>
+            {% endfor %}
+        </nav>
+    </div>
+
+</aside>
+<div class="mdc-drawer-scrim"></div>

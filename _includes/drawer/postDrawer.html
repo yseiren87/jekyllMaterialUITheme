@@ -1,0 +1,47 @@
+<aside class="mdc-drawer">
+
+    {% include brand.html drawer=true %}
+    <!--    {% include drawer/customHeader.html %}-->
+
+    {% assign categoryMenu = page.categories[0] %}
+
+    {% assign menuList = "" | split: ',' %}
+    {% for post in site.categories[categoryMenu] %}
+    {% assign menuList = menuList | push: post.menu[0] | uniq %}
+    {% endfor %}
+
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            {% for menu in menuList %}
+            <div class="mut-sidebar-dropdown mut-sidebar-dropdown--expanded">
+                <a class="mdc-list-item mut-sidebar-dropdown__toggle" href="#">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">
+                        remove
+                    </i>
+                    <span class="mdc-list-item__text">{{ menu }}</span>
+                </a>
+
+                <div class="mdc-list mut-sidebar-dropdown__menu">
+
+                    {% assign subList = "" | split: ',' %}
+                    {% for post in site.categories[categoryMenu] %}
+                    {% if post.menu[0] == menu %}
+                    {% assign subList = subList | push: post.menu[1] | uniq %}
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for sub in subList %}
+                    <a href="/{{categoryMenu}}/#{{ menu | replace: ' ', '-' }}-{{ sub | replace: ' ', '-' }}"
+                       data-target="{{ menu | replace: ' ', '-' }}-{{ sub | replace: ' ', '-' }}"
+                       class="mdc-list-item mut-sidebar-dropdown__item">
+                        <span class="mdc-list-item__text">{{ sub }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </nav>
+    </div>
+
+</aside>
+<div class="mdc-drawer-scrim"></div>

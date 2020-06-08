@@ -1,0 +1,47 @@
+@import "variables";
+
+@mixin high-resolution {
+  @media (min-width: #{$breakpoint-high-resolution + 1px}) {
+    @content
+  }
+}
+
+@mixin zero-to-high-resolution {
+  @media(max-width: #{$breakpoint-high-resolution}) {
+    @content
+  }
+}
+
+@mixin low-to-medium-resolution {
+  @media(min-width: #{$breakpoint-low-resolution + 1px}) and (max-width: #{$breakpoint-medium-resolution}) {
+    @content
+  }
+}
+
+@mixin low-resolution {
+  @media(max-width: #{$breakpoint-low-resolution}) {
+    @content
+  }
+}
+
+@mixin mut-top-app-bar__tab($top) {
+  position: absolute;
+  top: $top;
+  left: 0;
+  right: 0;
+  margin-right: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+@mixin mut-top-app-bar__tab-item {
+  display: table-cell;
+  text-align: center;
+  line-height: 48px;
+}
+
+@mixin default-font {
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
+}

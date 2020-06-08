@@ -1,0 +1,60 @@
+title: Your awesome title
+
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://192.168.110.10:4000" # the base hostname & protocol for your site, e.g. http://example.com
+
+# c.f. https://www.freefavicon.com/freefavicons/animal/iconinfo/black-cat-152-214639.html
+favicon: black-cat-214639
+logo: assets/logo.svg
+
+author:
+  name: Your Name
+  tag: Web Developer
+  avatar: assets/avatar.svg
+  email: yseiren87@gmail.com
+  rss: true
+
+social:
+  twitter: lusthaben8971
+  facebook: yseiren87
+  instagram: yseiren87
+  pinterest: yseiren87
+  tumblr: yseiren87
+
+comments:
+  type: disqus
+  lang: en_US
+
+google_analytics_id: UA-164943821-1
+
+# Build settings
+theme: material-ui-theme
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - LICENSE.txt
+  - material-ui-theme.gemspec
+  - package.json
+  - README.md
+  - src
+  - node_modules
+
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
